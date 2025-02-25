@@ -48,7 +48,7 @@ public class Transaction {
         this.type = type;
     }
 
-    public String getToAccount() {
+    public String getToAccountNumber() {
         return toAccountNumber;
     }
 

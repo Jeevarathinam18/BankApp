@@ -15,8 +15,8 @@ public class TransactionServiceImpl implements TransactionServiceApi {
     @Autowired
     TransactionRepository repository;
 
-    public List<Transaction> getTransactionByUserId(UUID userId) {
-        return repository.findAll();
+    public List<Transaction> getTransactionByUserId(String accountNumber) {
+        return repository.findByAccountNumber(accountNumber.trim());
     }
 
     public void createTransaction(String type, String fromAccountNumber, String toAccountNumber, Double amount, Double balance) throws IllegalAccessException {

@@ -6,6 +6,6 @@ import java.util.List;
 import java.util.UUID;
 
 public interface TransactionServiceApi {
-    List<Transaction> getTransactionByUserId(UUID userId);
+//    List<Transaction> getTransactionByUserId(UUID userId);
     void createTransaction(String type, String fromAccountNumber, String toAccountNumber, Double amount, Double balance) throws IllegalAccessException;
 }
