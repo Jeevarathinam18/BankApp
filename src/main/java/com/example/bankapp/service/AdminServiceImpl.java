@@ -23,6 +23,7 @@ public class AdminServiceImpl implements AdminServiceApi {
 
     public void registerUserAndCreateAccount(Users user){
         System.out.println("Service " + user.getUsername() + " " + user.getPassword());
+        user.setRole(user.getRole());
         user.setPassword(encoder.encode(user.getPassword()));
         Users savedUser = repo.save(user);
         System.out.println("User Created");
