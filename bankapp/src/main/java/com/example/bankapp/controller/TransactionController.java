@@ -27,14 +27,14 @@ public class TransactionController {
     @Autowired
     CsvExportService csvExportService;
 
-//    @GetMapping("/user/{userId}")
-//    public List<Transaction> getTransactionsByUserId(UUID userId){
-//        return transactionServiceImpl.getTransactionByUserId(userId);
-//    }
+    @GetMapping("/{accountNumber}")
+    public List<Transaction> getTransactionsByUserId(String accountNumber){
+        return transactionServiceImpl.getTransactionByAccountNumber(accountNumber);
+    }
 
     @GetMapping(value = "/export", produces = "text/csv")
     public ResponseEntity<InputStreamResource> exportTransaction(@RequestParam String accountNumber){
-        List<Transaction> transactions = transactionServiceImpl.getTransactionByUserId(accountNumber);
+        List<Transaction> transactions = transactionServiceImpl.getTransactionByAccountNumber(accountNumber);
         ByteArrayInputStream in = csvExportService.exportTransactionsToCsv(transactions);
 
         HttpHeaders headers = new HttpHeaders();
