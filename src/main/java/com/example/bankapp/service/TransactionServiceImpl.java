@@ -15,7 +15,7 @@ public class TransactionServiceImpl implements TransactionServiceApi {
     @Autowired
     TransactionRepository repository;
 
-    public List<Transaction> getTransactionByUserId(String accountNumber) {
+    public List<Transaction> getTransactionByAccountNumber(String accountNumber) {
         return repository.findByAccountNumber(accountNumber.trim());
     }
 
